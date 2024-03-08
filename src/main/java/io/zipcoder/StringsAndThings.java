@@ -71,9 +71,9 @@ public class StringsAndThings {
      */
 
     public Boolean gIsHappy(String input) {
-        String original = input;
+
         boolean flag = false;
-        int number = input.length() - original.replaceAll("g", "").length();
+        int number = input.length() - input.replaceAll("g", "").length();
 
         for (int i = 0; i < input.length() - 1; i++) {
 
@@ -100,10 +100,14 @@ public class StringsAndThings {
      * countTriple("a") // Should return 0
      */
     public Integer countTriple(String input) {
-        String original = input;
+        int count = 0;
         String str = input.toLowerCase();
-        int num = str.length() - str.replaceAll("xxx", "  ").length();
+        for(int i=1;i<input.length()-1;i++){
+            if(input.charAt(i)==input.charAt(i+1)&&input.charAt(i)==input.charAt(i-1)){
+              count++;
+            }
+        }
 
-        return num;
+        return count;
     }
 }
